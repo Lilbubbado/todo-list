@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs") %>
+
+
+  <p style="display:none;">Check out Storyset.com for animated images.</p>
+
+  <main>
+    <div class="container"> 
+      <div class="header"><h2><%- date %></h2></div>
+      <form action="/work" method="POST">
+        <input class="text-input" type="text" name="item" placeholder="New To-Do">
+        <input class="submit-btn" type="submit" value="+">
+      </form>
+      <div class="items-box">
+        <% if (locals.items) { %>
+          <% for (let i=items.length-1; i>=0; i--) { %>
+            <div class="item">
+              <input class="checkbox" type="checkbox">
+              <p><%- items[i] %></p>
+            </div> 
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+    
+  </main>
+<%- include("partials/footer.ejs") %>
